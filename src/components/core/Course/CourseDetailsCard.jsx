@@ -41,8 +41,8 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
       text2: "Please login to add To Cart",
       btn1Text: "Login",
       btn2Text: "Cancel",
-      btn1Handler: () => navigate("/login"),
-      btn2Handler: () => setConfirmationModal(null),
+      btn1Handeler: () => navigate("/login"),
+      btn2Handeler: () => setConfirmationModal(null),
     })
   }
 
@@ -68,16 +68,16 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
             <button
               className="yellowButton rounded-md px-3 py-2 bg-yellow-50 text-richblack-900"
               onClick={
-                user && course?.studentsEnrolled.includes(user?._id)
+                user && course?.studentEnrolled.includes(user?._id)
                   ? () => navigate("/dashboard/enrolled-courses")
                   : handleBuyCourse
               }
             >
-              {user && course?.studentsEnrolled.includes(user?._id)
+              {user && course?.studentEnrolled.includes(user?._id)
                 ? "Go To Course"
                 : "Buy Now"}
             </button>
-            {(!user || !course?.studentsEnrolled.includes(user?._id)) && (
+            {(!user || !course?.studentEnrolled.includes(user?._id)) && (
               <button onClick={handleAddToCart} className="blackButton bg-yellow-50 px-3 py-2 rounded-md text-richblack-900">
                 Add to Cart
               </button>

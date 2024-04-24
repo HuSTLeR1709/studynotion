@@ -3,6 +3,7 @@ const Category =require("../models/Category")
 const User  = require("../models/User")
 const SubSection = require("../models/SubSection")
 const Section = require("../models/Section");
+const courseProgress = require("../models/CourseProgress")
 const imageUploadToCloudinary = require("../utils/imageUploader");
 const { convertSecondsToDuration } = require("../utils/secToDuration");
 require("dotenv").config();
@@ -338,10 +339,10 @@ exports.deleteCourse = async (req, res) => {
         })
         .exec()
   
-      // let courseProgressCount = await CourseProgress.findOne({
-      //   courseID: courseId,
-      //   userId: userId,
-      // })
+      let courseProgressCount = await courseProgress.findOne({
+        courseID: courseId,
+        userId: userId,
+      })
   
       // console.log("courseProgressCount : ", courseProgressCount)
   
@@ -374,6 +375,7 @@ exports.deleteCourse = async (req, res) => {
         data: {
           courseDetails,
           totalDuration,
+          completedVideos: courseProgressCount?.completedVideos ? courseProgressCount?.completedVideos : []
           
         },
       })

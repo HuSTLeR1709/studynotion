@@ -5,14 +5,14 @@ import RenderToatalAmount from "./RenderToatalAmount";
 
 
 export default function Cart() {
-    const {total, totalItems} = useSelector((state)=> state.auth)
+    const {total, totalItems} = useSelector((state)=> state.cart)
 
     return <div className="text-white">
-        <h1>Your Cart</h1>
-        <p>{totalItems} items in your cart</p>
+        <h1 className="text-4xl">Your Cart</h1>
+        <p className="mt-10 text-sm text-[#6E727F]">{totalItems} items in your cart</p>
 
         {total > 0 ? 
-        (<div>
+        (<div className="flex justify-between">
            <RenderCartCourses/>
         <RenderToatalAmount/> 
         </div>)

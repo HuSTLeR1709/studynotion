@@ -12,10 +12,13 @@ const RenderCartCourses = () => {
     <div>
         {
             cart.map((course,index)=>{
-                return <div>
-                <div>
-                    <img src={course.thumbnail} alt='courseThumbnail'/>
-                    <div>
+                return <div className='flex justify-between mb-8 border-b-[1px] border-[#2C333F] p-4 w-[700px]'>
+                <div className='flex gap-4 justify-between'>
+                <div className='w-[200px]'>
+                    <img src={course.thumbnail} alt='courseThumbnail '/>
+                </div>
+                    
+                    <div className='flex flex-col'>
                         <p>{course.courseName}</p>
                         <p>{course.courseDescription}</p>
                         <div>
@@ -33,15 +36,12 @@ const RenderCartCourses = () => {
                     </div>
                 </div>
 
-                <div>
-                    <button onClick={()=> dispatch(removeFromCart(course._id))}>
+                <div className='flex flex-col gap-3'>
+                    <button onClick={()=> dispatch(removeFromCart(course._id))} className='flex items-center gap-2 border-[1px] rounded-xl border-[#2C333F] p-2 bg-[#161D29] text-[#EF476F]'>
                         <RiDeleteBin6Line/>
                         <span>Remove</span>
                     </button>
-                    <p>{course?.price}</p>
-                </div>
-                <div>
-
+                    <p className='text-[#FFD60A] text-2xl'>Rs. {course?.price}</p>
                 </div>
                 </div>
             })

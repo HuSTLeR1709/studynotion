@@ -110,8 +110,8 @@ const CourseDetails = ()=> {
       text2: "Please login to Purchase Course.",
       btn1Text: "Login",
       btn2Text: "Cancel",
-      btn1Handler: () => navigate("/login"),
-      btn2Handler: () => setConfirmationModal(null),
+      btn1Handeler: () => navigate("/login"),
+      btn2Handeler: () => setConfirmationModal(null),
     })
   }
 
