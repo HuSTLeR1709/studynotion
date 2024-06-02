@@ -11,6 +11,7 @@ import TimelineSection from '../components/core/Homepage/TimelineSection';
 import LearningLanguageSection from '../components/core/Homepage/LearningLanguageSection';
 import InstructorSection from '../components/core/Homepage/InstructorSection';
 import ExploreMore from '../components/core/Homepage/ExploreMore';
+import Footer from '../components/common/Footer';
 const Home = () => {
   return (
     <>
@@ -166,7 +167,7 @@ const Home = () => {
           
 
 
-
+    <Footer/>
            
     </>
   )

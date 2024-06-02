@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 const Upload = ({name, label, register, errors, setValue, text}) => {
     const [image, setimage] = useState(null)
     const {editCourse, course} = useSelector((state) => state.course);
+    
 
     const handelonchange = (e) => {
         const file = e.target.files[0];

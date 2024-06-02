@@ -250,7 +250,7 @@ return (
             </div>
 
         <div className='flex flex-col space-y-2 mt-3'>
-            <label className='text- text-richblack-5'>Benefits of the course<sup className='text-pink-200'>*</sup></label>
+            <label className=' text-richblack-5'>Benefits of the course<sup className='text-pink-200'>*</sup></label>
             <textarea
             id='coursebenefits'
             placeholder='Enter Benefits of the course'

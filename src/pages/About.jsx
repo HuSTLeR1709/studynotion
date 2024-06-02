@@ -8,6 +8,7 @@ import FoundingStory from '../assets/Images/FoundingStory.png'
 import StatsComponent from '../components/core/AboutPage/Stats'
 import LearningGrid from '../components/core/AboutPage/LearningGrid'
 import ContactFormSection from '../components/core/AboutPage/ContactFormSection'
+import Footer from '../components/common/Footer'
 
 const About = () => {
   return (
@@ -102,7 +103,7 @@ const About = () => {
             <ContactFormSection/>
         </section>
 
-
+        <Footer/>
     </div>
   )
 }

@@ -4,7 +4,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { markLectureAsComplete } from '../../../services/operations/courseDetailsAPI';
 import { updateCompletedLectures } from '../../../slices/viewCourseSlice';
 import { Player } from 'video-react';
-import '~video-react/dist/video-react.css';
+// import '~video-react/dist/video-react.css';
 import { AiFillPlayCircle } from "react-icons/ai";
 import IconBtn from '../../common/IconBtn';
 const VideoDetails = () => {
@@ -43,13 +43,12 @@ const VideoDetails = () => {
     setVideoSpecificDetails()
   },[courseSectionData, courseEntireData, location.pathname])
 
-
   const isFirstVideo = ()=>{
     const currentSectionIndex = courseSectionData.findIndex(
       (data)=> data._id === sectionId
     )
 
-    const currentSubSectionIndex = courseSectionData[currentSectionIndex].subSectionId.findIndex(
+    const currentSubSectionIndex = courseSectionData[currentSectionIndex].subSection.findIndex(
       (data)=> data._id === subSectionId
     )
 
@@ -68,7 +67,7 @@ const VideoDetails = () => {
     )
 
     const noOfSubSections = courseSectionData[currentSectionIndex].subSection.length;
-    const currentSubSectionIndex = courseSectionData[currentSectionIndex].subSectionId.findIndex(
+    const currentSubSectionIndex = courseSectionData[currentSectionIndex].subSection.findIndex(
       (data)=> data._id === subSectionId
     )
 
@@ -87,7 +86,7 @@ const VideoDetails = () => {
     )
 
     const noOfSubSections = courseSectionData[currentSectionIndex].subSection.length;
-    const currentSubSectionIndex = courseSectionData[currentSectionIndex].subSectionId.findIndex(
+    const currentSubSectionIndex = courseSectionData[currentSectionIndex].subSection.findIndex(
       (data)=> data._id === subSectionId
     )
 
@@ -108,7 +107,7 @@ const VideoDetails = () => {
     )
 
     const noOfSubSections = courseSectionData[currentSectionIndex].subSection.length;
-    const currentSubSectionIndex = courseSectionData[currentSectionIndex].subSectionId.findIndex(
+    const currentSubSectionIndex = courseSectionData[currentSectionIndex].subSection.findIndex(
       (data)=> data._id === subSectionId
     )
 
@@ -134,6 +133,8 @@ const VideoDetails = () => {
       }
       setLoading(false)
 
+      console.log(res)
+
 
   }
   return (
@@ -142,7 +143,7 @@ const VideoDetails = () => {
       !videoData ? (<div>
         No Data Found
       </div>) : (
-        <div>
+        <div className='text-richblack-5'>
           <Player
             ref = {playerRef}
             aspectRatio="16:9"
@@ -155,7 +156,7 @@ const VideoDetails = () => {
             videoEnded && (
               <div>
                 {
-                  completedLectures.inludes(subSectionId) && (
+                  !completedLectures.includes(subSectionId) && (
                     <IconBtn 
                     disabled={loading}
                     onclick={()=>handelLectureCompletion()}

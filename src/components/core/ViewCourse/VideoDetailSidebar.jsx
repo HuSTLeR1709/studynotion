@@ -31,10 +31,11 @@ const VideoDetailSidebar = ({setReviewModal}) => {
             setVideoBarActive(activeSubSectionId)
         })()
     },[courseSectionData, courseEntireData, location.pathname])
+    console.log("coursedta",courseEntireData)
   return (
     <>
 
-        <div>
+        <div className='text-richblack-5'>
             <div>
                 <div>
                      <div
@@ -51,7 +52,7 @@ const VideoDetailSidebar = ({setReviewModal}) => {
                      </div>
                 </div>
                 <div>
-                    <p>{courseEntireData?.courseName}</p>
+                    <p className='text-richblack-5'>{courseEntireData?.courseName}</p>
                     <p>{completedLectures?.length}/ {totalNoOfLectures}</p>
                 </div>
             </div>
@@ -80,7 +81,7 @@ const VideoDetailSidebar = ({setReviewModal}) => {
                                                     >
                                                         <input
                                                             type='checkbox'
-                                                            checked={completedLectures.includes(topic._id)}
+                                                            // checked={completedLectures.includes(topic._id)}
                                                             onChange={()=>{}}
                                                         />
                                                         <span>{topic.title}</span>
