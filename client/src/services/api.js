@@ -1,6 +1,6 @@
 
 
-const BASE_URL = "https://studynotion-vecl.vercel.app"
+const BASE_URL = "https://studynotion-apiv2.vercel.app/api/v1"
 
 export const categories = {
     CATEGORIES_API : BASE_URL + "/course/getAllCategory"
