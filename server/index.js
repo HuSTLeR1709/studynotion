@@ -29,9 +29,10 @@ app.use(cookieParser());
 
 app.use(express.json());
 
+
 app.use(
     cors({
-        origin: "https://studynotion-vecl.vercel.app",
+        origin: "*",
         methods: ["POST","GET","DELETE"],
         credentials:true,
     })
