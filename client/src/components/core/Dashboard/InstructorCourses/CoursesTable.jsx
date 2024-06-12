@@ -81,7 +81,7 @@ const CoursesTable = ({courses, setCourses}) => {
                             2Hr 30min
                         </Td>
                         <Td>
-                            ${course.price}
+                            Rs.{course.price}
                         </Td>
                         <Td>
                             <button

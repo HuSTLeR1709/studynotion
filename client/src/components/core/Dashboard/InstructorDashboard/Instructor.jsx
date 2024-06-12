@@ -40,19 +40,20 @@ const Instructor = () => {
   return (
     <div className='text-white'>
         <div>
-            <h1 className='text-white'>Hi {user?.firstName}</h1>
+            <h1 className='text-white text-4xl mb-3 font-semibold'>Hello, {user?.firstName} 👋</h1>
             <p>Let's start something New...</p>
         </div>
         {
             loading? (<div className='spinner'></div>) :
             courses.length > 0 
             ? (<div>
-                <div>
+                <div className="my-4 flex md:flex-row flex-col h-[600px] md:h-[450px] md:space-x-4 ">
                 
                 <div>
                     <InstructorChart courses={instructorData}/>
                 </div>
-                    <p>Statistics</p>
+                <div className="flex md:mt-0 mx-auto mt-6 min-w-[300px] flex-col rounded-md bg-richblack-800 p-6">
+                <p>Statistics</p>
                     <div>
                         <p>Total Courses</p>
                         <p>{courses.length}</p>
@@ -66,6 +67,8 @@ const Instructor = () => {
                         <p>{totalAmount}</p>
                     </div>
                 </div>
+                    
+                </div>
 
                 <div>
                     <div>
@@ -74,13 +77,13 @@ const Instructor = () => {
                             <p>View All</p>
                         </Link>
                     </div>
-                    <div>
+                    <div className="my-4 flex md:flex-row flex-col w-full items-start md:space-x-6 space-y-5 md:space-y-0">
                         {
                             courses.slice(0,3).map((course)=>(
                                 <div>
-                                    <img src={course.thumbnail} alt="courseThumbnail"/>
+                                    <img src={course.thumbnail} alt="courseThumbnail" className="h-[201px] w-[100%] md:w-full rounded-md object-cover"/>
                                     <p>{course.courseName}</p>
-                                    <div>
+                                    <div className='flex gap-2'>
                                         <p>{course.studentEnrolled.length} students</p>
                                         <p>|</p>
                                         <p>Rs. {course.price}</p>
