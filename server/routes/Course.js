@@ -36,6 +36,8 @@ const {
     getAllRatingAndReviews,
 } = require("../controllers/RatingAndReview");
 
+
+
 const {auth, isStudent, isAdmin, isInstructor} = require("../middlewares/auth");
 const { updateCourseProgress } = require("../controllers/courseProgress");
 

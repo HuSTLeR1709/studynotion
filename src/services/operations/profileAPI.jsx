@@ -162,3 +162,23 @@ export async function updatePfp(token,pfp){
     // toast.dismiss(toastId)
     return result
 }
+
+export async function getInstructorData(token){
+  const toastId = toast.loading("Loading...")
+  let result = [];
+  try {
+    const response = await apiConnector("GET", profileEndpoints.GET_ALL_INSTRUCTOR_DASHBOARD_DETAILS_API, null, {
+      Authorisation: `Bearer ${token}`,
+    })
+    console.log("GET_ISTRUCTOR_API_RESPONSE",response)
+    result = response?.data?.courses;
+    
+  } catch (error) {
+    console.log("GET_INSTRUCTOR_API_ERROR",error)
+    toast.error("Could not get instructor data")
+
+  }
+
+  toast.dismiss(toastId)
+  return result;
+}

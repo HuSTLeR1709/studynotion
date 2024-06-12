@@ -12,6 +12,7 @@ import LearningLanguageSection from '../components/core/Homepage/LearningLanguag
 import InstructorSection from '../components/core/Homepage/InstructorSection';
 import ExploreMore from '../components/core/Homepage/ExploreMore';
 import Footer from '../components/common/Footer';
+import ReviewSlider from '../components/common/ReviewSlider';
 const Home = () => {
   return (
     <>
@@ -161,6 +162,9 @@ const Home = () => {
                 <div className='w-11/12 bg-richblack-900 text-white flex flex-col gap-5  items-center justify-center'>
 
                          <InstructorSection/>
+
+                         <h2 className='text-4xl text-center font-bold mt-10'>Review from other Learners</h2>
+                         <ReviewSlider/>
 
                      </div>
              

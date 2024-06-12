@@ -35,7 +35,7 @@ const VideoDetailSidebar = ({setReviewModal}) => {
   return (
     <>
 
-        <div className='text-richblack-5'>
+        <div className='text-richblack-5 '>
             <div>
                 <div>
                      <div
@@ -47,7 +47,7 @@ const VideoDetailSidebar = ({setReviewModal}) => {
                      <div>
                         <IconBtn
                             text="Add Review"
-                            onclick={()=>{ setReviewModal(true)}}
+                            onclick={()=>{setReviewModal(true)}}
                         />
                      </div>
                 </div>

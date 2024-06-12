@@ -7,7 +7,9 @@ exports.createRating = async (req,res)=> {
     try {
         const {rating, reviews, courseId} = req.body;
         const userId = req.user.id;
-        const course = await Course.findOne({_id:courseId,studentEnrolled : {$elemMatch : {$eq: userId}}});
+        const course = await Course.findOne(
+            {_id:courseId,
+            studentEnrolled : {$elemMatch : {$eq: userId}}});
 
         if(!course){
             return res.status(404).json({

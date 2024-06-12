@@ -1,6 +1,7 @@
 const CourseProgress = require("../models/CourseProgress");
 const Profile = require("../models/Profile");
 const User = require("../models/User");
+const Course = require("../models/Course")
 const imageUploadToCloudinary = require("../utils/imageUploader");
 const { convertSecondsToDuration } = require("../utils/secToDuration");
 require("dotenv").config()
@@ -104,7 +105,7 @@ exports.getAllUserDetails = async (req, res) => {
 
 exports.getEnrolledCourses = async (req, res) => {
 	try {
-	  const userId = req.user.id
+	  const userId = req.user.id;
 	  let userDetails = await User.findOne({
 		_id: userId,
 	  })
@@ -214,4 +215,38 @@ exports.updateDisplayPicture = async (req, res) => {
 
 
 
+}
+
+exports.instructorDashboard = async (req,res) => {
+	try {
+
+		const courseDetails = await Course.find({instructor : req.user.id})
+		const courseData = courseDetails.map((course)=>{
+			const totalStudentEnrolled = course.studentEnrolled.length
+			const totalAmountGenerated = totalStudentEnrolled * course.price
+
+			const courseDatawithStats = {
+				_id : course._id,
+				courseName : course.courseName,
+				courseDescription: course.courseDescription,
+				totalStudentEnrolled,
+				totalAmountGenerated,
+			}
+
+			return courseDatawithStats
+		})
+
+		res.status(200).json({
+			success:true,
+			courses : courseData
+		})
+
+		
+	} catch (error) {
+		console.log(error)
+		res.status(500).json({
+			success:false,
+			message:"Internal Server Error"
+		})
+	}
 }

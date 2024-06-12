@@ -6,6 +6,10 @@ export const categories = {
     CATEGORIES_API : BASE_URL + "/course/getAllCategory"
 }
 
+export const ratingEndpoint = {
+  REVIEW_DETAILS_API : BASE_URL + "/course/getAllRating"
+}
+
 export const endpoints = {
     SENDOTP_API: BASE_URL + "/auth/sendotp",
     SIGNUP_API: BASE_URL + "/auth/signup",
@@ -26,8 +30,7 @@ export const settingsEndpoints = {
   export const profileEndpoints = {
     GET_USER_DETAILS_API: BASE_URL + "/profile/getAllUserDetails",
     GET_USER_ENROLLED_COURSES_API: BASE_URL + "/profile/getEnrolledCourses",
-    GET_ALL_INSTRUCTOR_DASHBOARD_DETAILS_API:
-      BASE_URL + "/profile/getInstructorDashboardDetails",
+    GET_ALL_INSTRUCTOR_DASHBOARD_DETAILS_API: BASE_URL + "/profile/getInstructorDashboardDetails",
   };
 
 
