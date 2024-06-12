@@ -31,7 +31,7 @@ app.use(express.json());
 
 app.use(
     cors({
-        origin: "https://studynotion-vecl.vercel.app/",
+        origin: "https://studynotion-vecl.vercel.app",
         methods: ["POST","GET","DELETE"],
         credentials:true,
     })
